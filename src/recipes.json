@@ -1,0 +1,125 @@
+[
+  {
+    "name": "Spaghetti alla Carbonara",
+    "ingredients": {
+      "Spaghetti": "400g",
+      "Eggs": "3",
+      "Guanciale": "150g",
+      "Pecorino Romano": "50g",
+      "Black Pepper": "To taste"
+    },
+    "instructions": "Cook the spaghetti. Fry the guanciale. Mix eggs, pecorino romano, and black pepper. Combine everything.",
+    "category": "Pasta"
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "ingredients": {
+      "Butter": "1 cup",
+      "Sugar": "1 cup",
+      "Brown Sugar": "1 cup",
+      "Eggs": "2",
+      "Vanilla Extract": "1 tsp",
+      "Flour": "2.5 cups",
+      "Chocolate Chips": "2 cups"
+    },
+    "instructions": "Cream butter and sugars. Add eggs and vanilla. Mix in flour and chocolate chips. Bake.",
+    "category": "Dessert"
+  },
+  {
+    "name": "Guacamole",
+    "ingredients": {
+      "Avocados": "3",
+      "Onion": "1/2 cup",
+      "Tomato": "1",
+      "Cilantro": "1/4 cup",
+      "Lime Juice": "2 tbsp",
+      "Salt": "1 tsp"
+    },
+    "instructions": "Mash avocados. Dice onion, tomato, and cilantro. Mix everything with lime juice and salt.",
+    "category": "Appetizer"
+  },
+  {
+    "name": "Chicken Stir-Fry",
+    "ingredients": {
+      "Chicken Breast": "1 lb",
+      "Broccoli": "2 cups",
+      "Carrots": "1 cup",
+      "Soy Sauce": "1/4 cup",
+      "Ginger": "1 tbsp",
+      "Garlic": "2 cloves"
+    },
+    "instructions": "Slice chicken and vegetables. Stir-fry chicken. Add vegetables, soy sauce, ginger, and garlic. Cook until tender.",
+    "category": "Meals"
+  },
+  {
+    "name": "Margarita Pizza",
+    "ingredients": {
+      "Pizza Dough": "1",
+      "Tomato Sauce": "1/2 cup",
+      "Mozzarella Cheese": "8 oz",
+      "Basil Leaves": "1/4 cup"
+    },
+    "instructions": "Roll out pizza dough. Spread tomato sauce. Add mozzarella cheese and basil leaves. Bake.",
+    "category": "Pizza"
+  },
+  {
+    "name": "Caesar Salad",
+    "ingredients": {
+      "Romaine Lettuce": "1 head",
+      "Croutons": "1 cup",
+      "Parmesan Cheese": "1/2 cup",
+      "Caesar Dressing": "1/4 cup"
+    },
+    "instructions": "Wash and chop lettuce. Add croutons, parmesan cheese, and Caesar dressing. Toss and serve.",
+    "category": "Salad"
+  },
+  {
+    "name": "Tomato Soup",
+    "ingredients": {
+      "Tomatoes": "6",
+      "Onion": "1",
+      "Garlic": "2 cloves",
+      "Vegetable Broth": "4 cups",
+      "Basil": "1/4 cup"
+    },
+    "instructions": "Sauté onion and garlic. Add tomatoes and vegetable broth. Simmer. Blend and garnish with basil.",
+    "category": "Soup"
+  },
+  {
+    "name": "Pancakes",
+    "ingredients": {
+      "Flour": "2 cups",
+      "Baking Powder": "2 tsp",
+      "Milk": "1.5 cups",
+      "Eggs": "2",
+      "Butter": "2 tbsp"
+    },
+    "instructions": "Mix flour, baking powder, milk, and eggs. Cook on a griddle with butter.",
+    "category": "Breakfast"
+  },
+  {
+    "name": "Beef Tacos",
+    "ingredients": {
+      "Ground Beef": "1 lb",
+      "Tortillas": "8",
+      "Lettuce": "1 cup",
+      "Tomato": "1",
+      "Cheese": "1 cup",
+      "Salsa": "1/2 cup"
+    },
+    "instructions": "Cook ground beef. Warm tortillas. Fill with beef, lettuce, tomato, cheese, and salsa.",
+    "category": "Mexican"
+  },
+  {
+    "name": "Fruit Salad",
+    "ingredients": {
+      "Strawberries": "1 cup",
+      "Blueberries": "1 cup",
+      "Bananas": "2",
+      "Oranges": "2",
+      "Mint": "1/4 cup"
+    },
+    "instructions": "Wash and chop fruits. Mix together and garnish with mint.",
+    "category": "Dessert"
+  }
+]
