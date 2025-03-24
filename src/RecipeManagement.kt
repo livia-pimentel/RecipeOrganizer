@@ -27,13 +27,38 @@ class RecipeManagement (private val filePath: String){
         return recipes.toList() // Return an immutable copy of the recipes list
     }
 
+    // Parses the ingredients input string into a map.
+    private fun parseIngredients(input: String): Map<String, String> {
+        val ingredients = mutableMapOf<String, String>()
+        val pairs = input.split(",")
+        for (pair in pairs) {
+            val parts = pair.trim().split(":")
+            if (parts.size == 2) {
+                ingredients[parts[0].trim()] = parts[1].trim()
+            }
+        }
+        return ingredients
+    }
+
+    // Saves the list of recipes to the JSON file.
+    private fun saveRecipes() {
+        try {
+            val json = Gson().toJson(recipes)
+            File(filePath).writeText(json)
+            println("Recipes saved successfully!")
+        } catch (e: Exception) {
+            println("Error saving recipes: ${e.message}")
+        }
+    }
+
     // Adds a new recipe to the list and saves it to the JSON file.
-    fun addRecipe (name: String, ingredients: Map<String, String>, instructions: String, category: String) {
-        if(name.isBlank() || ingredients.isEmpty() || instructions.isBlank() || category.isBlank()) {
+    fun addRecipe(name: String, ingredientsInput: String, instructions: String, category: String) {
+        if (name.isBlank() || ingredientsInput.isBlank() || instructions.isBlank() || category.isBlank()) {
             println("All fields are required. Please provide valid input.")
-            return // Exit the function if any field is blank
+            return
         }
 
+        val ingredients = parseIngredients(ingredientsInput)
         val formattedName = formatInput(name)
         val formattedIngredients = ingredients.mapKeys { formatInput(it.key) }
         val formattedInstructions = formatInput(instructions)
