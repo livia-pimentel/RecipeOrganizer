@@ -29,14 +29,19 @@ class RecipeManagement (private val filePath: String){
 
     // Adds a new recipe to the list and saves it to the JSON file.
     fun addRecipe (name: String, ingredients: Map<String, String>, instructions: String, category: String) {
-        val formattedName = formatInput(name) // Format the recipe name
-        val formattedIngredients = ingredients.mapKeys { formattedName(it.key) } // Format ingredient names
-        val formattedInstructions = formatInput(instructions) // Format instructions
-        val formattedCategory = formatInput(category) // Format category
+        if(name.isBlank() || ingredients.isEmpty() || instructions.isBlank() || category.isBlank()) {
+            println("All fields are required. Please provide valid input.")
+            return // Exit the function if any field is blank
+        }
 
-        val recipe = Recipe(formattedName,formattedIngredients, formattedInstructions, formattedCategory) // Create a new Recipe object
-        recipes.add(recipe) // Add the recipe to the list
-        saveRecipe() // Save to JSON file
+        val formattedName = formatInput(name)
+        val formattedIngredients = ingredients.mapKeys { formatInput(it.key) }
+        val formattedInstructions = formatInput(instructions)
+        val formattedCategory = formatInput(category)
+
+        val recipe = Recipe(formattedName, formattedIngredients, formattedInstructions, formattedCategory)
+        recipes.add(recipe)
+        saveRecipes()
         println("Recipe '$formattedName' added successfully!")
     }
 
