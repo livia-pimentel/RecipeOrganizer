@@ -52,23 +52,24 @@ class RecipeManagement (private val filePath: String){
     }
 
     // Adds a new recipe to the list and saves it to the JSON file.
-    fun addRecipe(name: String, ingredientsInput: String, instructions: String, category: String) {
-        if (name.isBlank() || ingredientsInput.isBlank() || instructions.isBlank() || category.isBlank()) {
+    fun addRecipe(name: String, ingredientsInput: String, instructionsInput: String, category: String) {
+        if (name.isBlank() || ingredientsInput.isBlank() || instructionsInput.isBlank() || category.isBlank()) {
             println("All fields are required. Please provide valid input.")
             return
         }
 
         val ingredients = parseIngredients(ingredientsInput)
+        val instructions = instructionsInput.split(".").map { it.trim() }.filter { it.isNotEmpty() }.joinToString("\n") // Join instructions with newlines
         val formattedName = formatInput(name)
         val formattedIngredients = ingredients.mapKeys { formatInput(it.key) }
-        val formattedInstructions = formatInput(instructions)
         val formattedCategory = formatInput(category)
 
-        val recipe = Recipe(formattedName, formattedIngredients, formattedInstructions, formattedCategory)
+        val recipe = Recipe(formattedName, formattedIngredients, instructions, formattedCategory)
         recipes.add(recipe)
         saveRecipes()
         println("Recipe '$formattedName' added successfully!")
     }
+
 
     // Formats the input string by trimming whitespace, capitalizing the first letter, and lowercasing the rest.
     private fun formatInput(input: String): String {
@@ -86,7 +87,7 @@ class RecipeManagement (private val filePath: String){
     }
 
     private fun isValidInput(input: String): Boolean {
-        return input.matches(Regex("[a-zA-Z0-9 ]+")) // Check if input contains only letters, numbers, and spaces
+        return input.matches(Regex("[a-zA-Z0-9 .,~]+"))// Check if input contains only letters, numbers, and spaces
     }
 
 }
