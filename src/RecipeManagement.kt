@@ -55,4 +55,8 @@ class RecipeManagement (private val filePath: String){
         }
     }
 
+    private fun isValidInput(input: String): Boolean {
+        return input.matches(Regex("[a-zA-Z0-9 ]+")) // Check if input contains only letters, numbers, and spaces
+    }
+
 }
