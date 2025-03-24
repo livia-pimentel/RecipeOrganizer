@@ -40,4 +40,19 @@ class RecipeManagement (private val filePath: String){
         println("Recipe '$formattedName' added successfully!")
     }
 
+    // Formats the input string by trimming whitespace, capitalizing the first letter, and lowercasing the rest.
+    private fun formatInput(input: String): String {
+        val trimmedWhitespace = input.trim() // Remove leading and trailing whitespace
+        return if (isValidInput(trimmedWhitespace)) { // Validate input
+            if (trimmedWhitespace.isNotEmpty()) {
+                trimmedWhitespace.substring(0, 1).uppercase() + trimmedWhitespace.substring(1).lowercase() // Capitalize first letter and lowercase the rest
+            } else {
+                "" // Return empty string if input is empty
+            }
+        } else {
+            println("Invalid input: '$input'. Only letters and numbers are allowed.")
+            "" // Return empty string if input is invalid
+        }
+    }
+
 }
