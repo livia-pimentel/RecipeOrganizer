@@ -1,7 +1,6 @@
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
-import java.nio.file.Path
 
 class RecipeManagement (private val filePath: String){
 
@@ -26,6 +25,19 @@ class RecipeManagement (private val filePath: String){
 
     fun getAllRecipes(): List<Recipe> {
         return recipes.toList() // Return an immutable copy of the recipes list
+    }
+
+    // Adds a new recipe to the list and saves it to the JSON file.
+    fun addRecipe (name: String, ingredients: Map<String, String>, instructions: String, category: String) {
+        val formattedName = formatInput(name) // Format the recipe name
+        val formattedIngredients = ingredients.mapKeys { formattedName(it.key) } // Format ingredient names
+        val formattedInstructions = formatInput(instructions) // Format instructions
+        val formattedCategory = formatInput(category) // Format category
+
+        val recipe = Recipe(formattedName,formattedIngredients, formattedInstructions, formattedCategory) // Create a new Recipe object
+        recipes.add(recipe) // Add the recipe to the list
+        saveRecipe() // Save to JSON file
+        println("Recipe '$formattedName' added successfully!")
     }
 
 }
