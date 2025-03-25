@@ -70,7 +70,6 @@ class RecipeManagement (private val filePath: String){
         println("Recipe '$formattedName' added successfully!")
     }
 
-
     // Formats the input string by trimming whitespace, capitalizing the first letter, and lowercasing the rest.
     private fun formatInput(input: String): String {
         val trimmedWhitespace = input.trim() // Remove leading and trailing whitespace
@@ -88,6 +87,17 @@ class RecipeManagement (private val filePath: String){
 
     private fun isValidInput(input: String): Boolean {
         return input.matches(Regex("[a-zA-Z0-9 .,~]+"))// Check if input contains only letters, numbers, and spaces
+    }
+
+    fun deleteRecipe(recipeName: String) {
+        val recipeToDelete = recipes.find { it.name.equals(recipeName, ignoreCase = true ) }
+        if (recipeToDelete != null) {
+            recipes.remove(recipeToDelete)
+            saveRecipes()
+            println("Recipe $recipeName deleted successfully!")
+        } else {
+            println("Recipe '$recipeName' not found.")
+        }
     }
 
 }
