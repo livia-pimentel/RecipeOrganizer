@@ -5,13 +5,15 @@ fun main() {
         println("\nRecipe Organizer Menu:")
         println("1. View Recipes")
         println("2. Add Recipe")
-        println("3. Exit")
+        println("3. Delete Recipe")
+        println("4. Exit")
         print("Enter your choice: ")
 
         when (readLine()?.toIntOrNull()) {
             1 -> viewRecipes(recipeManagement)
             2 -> addRecipe(recipeManagement)
-            3 -> return
+            3 -> deleteRecipe(recipeManagement)
+            4 -> return
             else -> println("Invalid choice. Please try again.")
         }
     }
@@ -48,4 +50,11 @@ fun addRecipe(recipeManagement: RecipeManagement) {
     val category = readLine() ?: ""
 
     recipeManagement.addRecipe(name, ingredientsInput, instructions, category)
+}
+
+fun deleteRecipe(recipeManagement: RecipeManagement) {
+    viewRecipes(recipeManagement) // Show the recipes for the user to choose which delete
+    println("Enter the name of the recipe to delete: ")
+    val recipeName = readLine() ?: ""
+    recipeManagement.deleteRecipe(recipeName)
 }
