@@ -85,12 +85,14 @@ class RecipeManagement (private val filePath: String){
         }
     }
 
+    // Valid Input function
     private fun isValidInput(input: String): Boolean {
-        return input.matches(Regex("[a-zA-Z0-9 .,~]+"))// Check if input contains only letters, numbers, and spaces
+        return input.matches(Regex("[a-zA-Z0-9 .]+"))// Check if input contains only letters, numbers, and spaces
     }
 
+    // Delete function
     fun deleteRecipe(recipeName: String) {
-        val recipeToDelete = recipes.find { it.name.equals(recipeName, ignoreCase = true ) }
+        val recipeToDelete = recipes.find { it.name.equals(recipeName, ignoreCase = true ) } // finds the name in the collection and ignores uppercase/lowercase letters
         if (recipeToDelete != null) {
             recipes.remove(recipeToDelete)
             saveRecipes()

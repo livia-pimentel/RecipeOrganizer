@@ -1,6 +1,8 @@
 fun main() {
+    // search the JSON for the way
     val recipeManagement = RecipeManagement("src/recipes.json")
 
+    // Menu options
     while (true) {
         println("\nRecipe Organizer Menu:")
         println("1. View Recipes")
@@ -9,6 +11,7 @@ fun main() {
         println("4. Exit")
         print("Enter your choice: ")
 
+        // Read the user’s input and try to convert the string to an integer
         when (readLine()?.toIntOrNull()) {
             1 -> viewRecipes(recipeManagement)
             2 -> addRecipe(recipeManagement)
@@ -19,6 +22,7 @@ fun main() {
     }
 }
 
+// Shows the formatted recipes
 fun viewRecipes(recipeManagement: RecipeManagement) {
     println("\nExisting Recipes:")
     recipeManagement.getAllRecipes().forEach { recipe ->
@@ -36,7 +40,7 @@ fun viewRecipes(recipeManagement: RecipeManagement) {
     }
 }
 
-
+// Requests for information to add a recipe
 fun addRecipe(recipeManagement: RecipeManagement) {
     print("Name: ")
     val name = readLine() ?: ""
@@ -53,6 +57,7 @@ fun addRecipe(recipeManagement: RecipeManagement) {
     recipeManagement.addRecipe(name, ingredientsInput, instructions, category)
 }
 
+// Delete function
 fun deleteRecipe(recipeManagement: RecipeManagement) {
     viewRecipes(recipeManagement) // Show the recipes for the user to choose which delete
     println("Enter the name of the recipe to delete: ")
